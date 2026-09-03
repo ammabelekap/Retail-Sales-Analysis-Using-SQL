@@ -48,7 +48,8 @@ https://youtu.be/ChIQjGBI3AM?si=s4Y32CRKB29ZuSjm
 
 Through this project, I strengthened my understanding of SQL
 querying, data cleaning, data exploration, and solving
-business-related questions using data.
+business-related questions using data
+
 CREATE DATABASE sql_project01
 --CREATE TABLE--
 CREATE TABLE retail_sales
