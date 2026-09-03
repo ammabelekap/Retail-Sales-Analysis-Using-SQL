@@ -185,6 +185,7 @@ SELECT
 	COUNT (*) as total_orders
 FROM hourly_sale
 GROUP BY shift
+	
 ## My Additional Analysis
 --1. Revenue and Profit by Category
 	SELECT
