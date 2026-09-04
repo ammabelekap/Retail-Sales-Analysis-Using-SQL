@@ -195,17 +195,7 @@ GROUP BY shift
 FROM retail_sales
 GROUP BY category
 ORDER BY total_profit DESC;
---2. Profit Margin by Category
-SELECT
-    category,
-    ROUND(
-        SUM(total_sale - cogs) / SUM(total_sale) * 100,
-        2
-    ) AS profit_margin_percentage
-FROM retail_sales
-GROUP BY category
-ORDER BY profit_margin_percentage DESC;
---3. Customers with the Highest Number of Transactions
+--2. Customers with the Highest Number of Transactions
 SELECT
     customer_id,
     COUNT(transactions_id) AS total_transactions,
@@ -214,16 +204,16 @@ FROM retail_sales
 GROUP BY customer_id
 ORDER BY total_transactions DESC
 LIMIT 10;
---4. Average Transaction Value by Gender
+--3. Average Transaction Value by Gender
 SELECT
     gender,
     COUNT(transactions_id) AS total_transactions,
-    ROUND(AVG(total_sale), 2) AS average_transaction_value,
-    ROUND(SUM(total_sale), 2) AS total_sales
+    AVG(total_sale) AS average_transaction_value,
+    SUM(total_sale) AS total_sales
 FROM retail_sales
 GROUP BY gender
 ORDER BY average_transaction_value DESC;
---5. Sales Performance by Age Group
+--4. Sales Performance by Age Group
 SELECT
     CASE
         WHEN age < 20 THEN 'Under 20'
@@ -233,9 +223,10 @@ SELECT
         ELSE '50+'
     END AS age_group,
     COUNT(transactions_id) AS total_transactions,
-    ROUND(SUM(total_sale), 2) AS total_sales,
-    ROUND(AVG(total_sale), 2) AS average_transaction_value
+    SUM(total_sale) AS total_sales,
+    AVG(total_sale) AS average_transaction_value
 FROM retail_sales
 GROUP BY age_group
 ORDER BY total_sales DESC;
+--End of project--
 --End of project--
